@@ -15,7 +15,12 @@ namespace Events.Data
 
         public static ApplicationDbContext Create()
         {
-            return new ApplicationDbContext();
+             return new ApplicationDbContext();
         }
+
+        public IDbSet<Event> Events { get; set; }
+
+        public IDbSet<Comment> Comments { get; set; }
+
     }
 }

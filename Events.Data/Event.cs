@@ -13,7 +13,10 @@ namespace Events.Data
         {
             this.IsPublic = true;
             this.StartDateTime = DateTime.Now;
+            this.Comments = new HashSet<Comment>();
         }
+
+        public int Id { get; set; }
         public TimeSpan? Duration { get; set; }
 
         public string AuthorId { get; set; }
@@ -22,11 +25,16 @@ namespace Events.Data
 
         public bool IsPublic { get; private set; }
 
-        public DateTime StartDateTime { get; private set; }
+        public DateTime StartDateTime { get; set; }
 
         public string Description { get; set; }
 
         [MaxLength(200)]
         public string Location { get; set; }
+
+        [MaxLength(200)]
+        public string Title { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
      }
 }

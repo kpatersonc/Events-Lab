@@ -1,12 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Events.Data
 {
-    class Comment
+    public class Comment
     {
+        public Comment()
+        {
+            this.Date = DateTime.Now;
+        }
+        [Required]
+        public DateTime Date { get; private set; }
+
+        public int Id { get; set; }
+
+        [Required]
+        public string Text { get; set; }
+
+        public string AuthorId { get; set; }
+
+        public int EventId { get; set; }
+
+        public virtual ApplicationUser Author { get; set; }
+
+        [Required]
+        public virtual Event Event { get; set; }
     }
 }
